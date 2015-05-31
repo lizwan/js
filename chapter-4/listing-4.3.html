@@ -9,14 +9,14 @@
   <body>
     <script type="text/javascript">
 
-      var ninja = {
+      var ninja = {             //재귀 함수인 chirp를 ninja 객체의 프로퍼티로 선언한다.
         chirp: function(n) {
-          return n > 1 ? ninja.chirp(n - 1) + "-chirp" : "chirp";
+          return n > 1 ? ninja.chirp(n - 1) + "-chirp" : "chirp"; //메서드 내에서 객체의 참조(ninja.chirp)를 이용해서 메서드를 호출
         }
       };
 
       assert(ninja.chirp(3) == "chirp-chirp-chirp",
-            "An object property isn't too confusing, either.");
+            "객체의 프로퍼티를 사용하는 것도 그다지 혼란스럽지는 않다.");
 
     </script>
   </body>

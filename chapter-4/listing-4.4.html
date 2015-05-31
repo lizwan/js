@@ -15,13 +15,13 @@
         }
       };
 
-      var samurai = { chirp: ninja.chirp };                     //#1
+      var samurai = { chirp: ninja.chirp };                     //#1 ninja.chirp의 메서드를 참조하는 samurai.chirp
 
-      ninja = {};                                               //#2
+      ninja = {};                                               //#2 프로퍼티가 없는 ninja를 재 선언, ninja.chirp는 사라진다.
 
       try {
-        assert(samurai.chirp(3) == "chirp-chirp-chirp",         //#3
-              "Is this going to work?");
+        assert(samurai.chirp(3) == "chirp-chirp-chirp",         //#3 동작하지 않는다.
+              "Is this going to work?");                        // 이유는 function은 자신을 참조하는 한 가지 객체만 이용하고 있어서(ninja.chirp)
       }
       catch(e){
         assert(false,

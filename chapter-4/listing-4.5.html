@@ -11,19 +11,19 @@
     <script type="text/javascript">
 
       var ninja = {
-        chirp: function signal(n) {                              //#1
+        chirp: function signal(n) {                              //#1 이름을 가진 인라인 함수
           return n > 1 ? signal(n - 1) + "-chirp" : "chirp";
         }
       };
 
-      assert(ninja.chirp(3) == "chirp-chirp-chirp",             //#2
+      assert(ninja.chirp(3) == "chirp-chirp-chirp",             //#2 동작한다.
              "Works as we would expect it to!");
 
-      var samurai = { chirp: ninja.chirp };                     //#3
+      var samurai = { chirp: ninja.chirp };                     //#3 새로운 객체를 만든다.
 
-      ninja = {};                                               //#4
+      ninja = {};                                               //#4 ninja 객체 삭제
 
-      assert(samurai.chirp(3) == "chirp-chirp-chirp",           //#5
+      assert(samurai.chirp(3) == "chirp-chirp-chirp",           //#5 잘 동작한다.
              "The method correctly calls itself.");
 
     </script>

@@ -9,15 +9,15 @@
   <body>
     <script type="text/javascript">
 
-      var ninja = function myNinja(){                                  //#1
-        assert(ninja == myNinja,                                       //#2
+      var ninja = function myNinja(){                                  //#1 이름을 지닌 인라인 함수를 선언한 다음 함수를 변수에 할당한다.
+        assert(ninja == myNinja,                                       //#2 인라인 함수내에서 두 이름이 동일한지 테스트
                "This function is named two things at once!");          //#2
       };
 
-      ninja();                                                         //#3
+      ninja();                                                         //#3 인라인 함수 내부 테스트
 
-      assert(typeof myNinja == "undefined",                            //#4
-             "But myNinja isn't defined outside of the function.");    //#4
+      assert(typeof myNinja == "undefined",                            //#4 인라인 함수 외부 테스트
+             "But myNinja isn't defined outside of the function.");    //#4 사용불가
 
     </script>
   </body>
