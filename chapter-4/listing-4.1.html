@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listing 4.1</title>
+    <script type="text/javascript" src="../scripts/assert.js"></script>
+    <link href="../styles/assert.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      window.onload =                                 //#1 익명함수를 이벤트 핸들러로 등록
+        function(){ assert(true, 'power!'); };        //#1 함수이름 X
+
+      var ninja = {
+        shout: function(){                            //#2 ninja의 method로 사용될 함수를 만든다.
+          assert(true,"Ninja");                       //#2 함수를 호출할때 shout property를 사용할것이기 때문에
+        }                                             //#2 함수이름 X
+      };
+
+      ninja.shout();
+
+      setTimeout(
+        function(){ assert(true,'Forever!'); },        //#3 call back 함수, 함수이름 X
+        500);
+
+    </script>
+  </body>
+</html>
