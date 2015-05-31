@@ -10,12 +10,12 @@
     <script type="text/javascript">
 
       var ninja = {
-        chirp: function(n) {                              //#1
+        chirp: function(n) {                              //#1 arguments.callee 프로퍼티를 참조한다.
           return n > 1 ? arguments.callee(n - 1) + "-chirp" : "chirp";
         }
       };
 
-      assert(ninja.chirp(3) == "chirp-chirp-chirp",      //#2
+      assert(ninja.chirp(3) == "chirp-chirp-chirp",      //#2 callee프로퍼티를 이용하면 항상 안정적으로 함수 자체를 참조할 수 있다.
              "arguments.callee is the function itself.");
 
     </script>

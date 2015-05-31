@@ -9,24 +9,36 @@
   <body>
     <script type="text/javascript">
 
-      function merge(root){                                   //#1
-        for (var i = 1; i < arguments.length; i++) {
-          for (var key in arguments[i]) {
-            root[key] = arguments[i][key];
+      function merge(root){                                   //#1 매개변수가 하나만 선언되어 있다. 그러나 함수를 사용할때 매개변수를 하나만 사용해야 한다는 뜻이 아니다.
+                                                              //#1 merge()를 호출할 때, 매개변수가 없는 경우를 포함해서, 어떤수의 매개변수도 사용할 수 있다.
+        alert(root);                                          //#1 자바스크립트는 함수를 호출할 때, 함수 선언 시에 정의된 매개변수와 동일한 수의 인자를 전달하도록 강제하지 않는다.
+        alert(root.name);
+        //alert(kk.city);
+        for (var i = 1; i < arguments.length; i++) {          //#1
+          for (var key in arguments[i]) {                     //#1 for in 구문은 객체의 모든 프로퍼티를 순회하면서
+            alert("arg:"+arguments[i][key]);
+            root[key] = arguments[i][key];                    //#1 프로퍼티 이름(key)을 매 이터레이션의 항목(item)으로 설정하는 구문이다.
           }
         }
         return root;
       }
 
-      var merged = merge(                                     //#2
+      var merged = merge(                                     //#2 구현된 함수를 호출
         {name: "Batou"},                                      //#2
-        {city: "Niihama"});                                   //#2
-
-      assert(merged.name == "Batou",                          //#3
+        {city: "Niihama"}
+        );                                                    //#2
+/*
+        var merged = merge(                                     //#2 구현된 함수를 호출
+          {kk: "Batou"},                                      //#2
+          {tt: "Niihama"}
+          );
+*/
+      assert(merged.name == "Batou",                          //#3 1번째 인자는 제외하고 1번 인덱스부터 접근해서 차례대로 처리
              "The original name is intact.");                 //#3
       assert(merged.city == "Niihama",                        //#3
              "And the city has been copied over.");           //#3
-
+             alert(merge.length );
+             alert(merged.length ); //함수가 아니기 때문에
     </script>
   </body>
 </html>

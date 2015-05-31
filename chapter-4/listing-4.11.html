@@ -9,9 +9,9 @@
   <body>
     <script type="text/javascript">
 
-      function smallest(array){                         //#1
-        return Math.min.apply(Math, array);             //#1
-      }                                                 //#1
+      function smallest(array){                         //#1 함수를 호출할때 가변인자 목록을 사용하는 방법
+        return Math.min.apply(Math, array);             //#1 가변인자 목록으로 전달하기 위해서 apply() 사용
+      }                                                 //#1 context로 Math객체를 지정하는 것을 보자.
 
       function largest(array){                          //#2
         return Math.max.apply(Math, array);             //#2

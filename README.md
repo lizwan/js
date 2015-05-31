@@ -94,6 +94,62 @@ code.4.7 [현재 호출된 함수를 참조하기 위해서 arguments.callee를 
 ### 4.3.1 함수 저장하기
 code.4.8 [서로 다른 함수를 컬렉션에 저장하기](chapter-4/listing-4.8.html)
 
+## 4.4 가변인자 목록
+### 4.4.1 apply() 메서드를 이용해서 가변길이의 인자를 전달하기
+- javascript에서는 최소값, 최대값을 검색하는 기능이 없다.
+- Math 객체에 있는 min(), max() 로 유사하게 구현 가능
 
+```
+var biggest = Math.max(1,2);
+var biggest = Math.max(1,2,8,9,10,2058);
+var biggest = Math.max(list[0], list[1],list[2]);
+```
+- max 대신 apply 
+- 모든 함수가 지니고 있는 call, apply
+- code.4.11 [배열을 인자로 받는 제네릭 main(), max() 함수](chapter-4/listing-4.11.html)
+- 함수를 호출할때 가변인자 목록을 사용하는 방법
 
+### 4.4.2 함수 오버로딩
+- 가변인자를 전달받는 함수를 선언하는 방법
+- java : 이름은 같지만 다른 매개변수 목록을 갖는 메서드 구현을 선언하는 방식
+- javascript : 전달된 인자의 수와 유형에 따라 동작방식이 변경되는 단일 함수를 이용해서 함수를 오버로드 한다.
+- code.4.12 [가변인자 목록 순회하기](chapter-4/listing-4.12.html)
+- 인자의 컬렉션에 접근하고 순회하는 기능은 복잡하고 똑똑한 메서드를 만드는 강력한 수단이다.
+- 어떤값이 전달될지 미리 알 수 없는 상황이라 하더라도 유연하게 동작하는 함수를 만들기 위해서 함수에 전달된 인자를 검사 하는데 argument collection을 활용할 수 있다.
+- 예를 들면 Jquery UI 서로 다른 인자
 
+```
+$("#myDialog").dialog({caption: " This is a dialog" });
+$("#myDialog").dialog("open");
+```
+### 4.4.3 함수의 오버로딩에 대한 접근방법
+#### 4.4.3.1 함수의 length 프로퍼티
+- 함수가 어떻게 선언되었는지에 대해 알 수 있게 해준다.
+- 함수를 선언할 때 지정한, 이름을 가진 매개변수의 수가 저장되어 있다.
+- arguments 의 length 프로퍼티와는 다르다.
+- 결과적으로 함수 내에서 함수 인자에 대해 두 가지를 알 수 있다.
+  - length 프로퍼티를 통해서 이름을 지닌 매개변수의 수를 알수 있다.
+  - arguments.length를 통해서 호출 시에 전달된 인자의 수를 알수 있다.
+
+#### 4.4.3.2 인자의 개수를 이용한 함수 오버로딩
+- 함수의 인자를 기반으로 오버로드를 결정하는 3가지 방법
+  1. 전달된 인자의 타입에 근거해서 다른 연산을 실행
+  2. 특정 매개변수의 존재 유무에 따라 전환을 하는것
+  3. 전달된 인자의 수를 이용하는 것
+
+```
+var ninja = {
+  whatever: function() {
+  	swich (argument.length) {
+  		case 0 : /* something */
+  	break;
+  		case 1 :
+  	break;
+  		case 2 : 
+  	break;
+  	}
+  }
+}
+```
+
+- code.4.15 [메서드 오버로딩을 처리하는 함수](chapter-4/add-method.js)
