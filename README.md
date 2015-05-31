@@ -30,12 +30,13 @@ code.4.2 [이름을 가진 함수를 이용해서 소리내기](chapter-4/listin
 - 재귀 함수가 객체의 프로퍼티에 할당된 익명 함수가 된다.
 - 재귀적으로 호출하는 함수 참조가 객체의 프로퍼티(함수를 메서드로 호출)
 
+```
       var ninja = {             //재귀 함수인 chirp를 ninja 객체의 프로퍼티로 선언한다.
         chirp: function(n) {
           return n > 1 ? ninja.chirp(n - 1) + "-chirp" : "chirp"; //메서드 내에서 객체의 참조(ninja.chirp)를 이용해서 메서드를 호출
         }
       };
-      
+```
 code.4.3 [객체 내에서 매서드 재귀 호출](chapter-4/listing-4.3.html)
 
 `
@@ -50,12 +51,13 @@ code.4.4 [사라진 함수 참조를 이용하는 재귀호출](chapter-4/listin
 
 - 익명 함수 내에서 명시적으로 ninja를 참조하는 대신, 다음과 같이 함수의 context인 this를 사용해야 한다.
 
+```
       var ninja = {
         chirp: function(n) {
           return n > 1 ? this.chirp(n - 1) + "-chirp" : "chirp";
         }
       };
-
+```
 - 함수를 객체의 메서드로써 호출하면(ninja.chirp(n - 1)) 함수의 context는 메서드가 호출된 객체를 가르킨다.
 - 함수의 컨텍스트를(this) 이용하면 문제가 해결되는듯 하나...
 
