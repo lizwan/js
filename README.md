@@ -19,10 +19,11 @@
 ### 4.2.1 이름을 가진 함수 내에서의 재귀
 - 재귀적으로 호출하는 함수이름
 
+```
       function chirp(n) {                                      //#1
         return n > 1 ? chirp(n - 1) + "-chirp" : "chirp";      //#1
       }  
-
+```
 - code.4.2 [이름을 가진 함수를 이용해서 소리내기](chapter-4/listing-4.2.html)
 
 ### 4.2.2 메서드를 이용한 재귀
@@ -59,7 +60,7 @@
 - 함수의 컨텍스트를(this) 이용하면 문제가 해결되는듯 하나...
 
 ```
-자바스크립트의 Context, Closure, this 
+자바스크립트의 Context, Closure, this
 http://incn.tistory.com/89
 ```
 
@@ -68,7 +69,7 @@ http://incn.tistory.com/89
 - 메서드를 소유한 객체를 참조하기 위해서 함수의 컨텍스트를 활용하는 방법은 늘 하던 방법임.
 - 그러나 문제
   - 문제 1. 프로퍼티 이름이 chirp가 아니라면 어떻게 되나?
-  - 문제 2. 함수를 가르키는 참조가 객체의 프로퍼티가 아니라면 어떻게 되나? 
+  - 문제 2. 함수를 가르키는 참조가 객체의 프로퍼티가 아니라면 어떻게 되나?
 - 이름을 가진 익명함수 === 인라인 함수 를 이용해 이문제를 해결해보자
 - code.4.5 [재귀호출에서 인라인 함수를 이용하기]()
 
@@ -98,7 +99,7 @@ var biggest = Math.max(1,2);
 var biggest = Math.max(1,2,8,9,10,2058);
 var biggest = Math.max(list[0], list[1],list[2]);
 ```
-- max 대신 apply 
+- max 대신 apply
 - 모든 함수가 지니고 있는 call, apply
 - code.4.11 [배열을 인자로 받는 제네릭 main(), max() 함수](chapter-4/listing-4.11.html)
 - 함수를 호출할때 가변인자 목록을 사용하는 방법
@@ -139,7 +140,7 @@ var ninja = {
   	break;
   		case 1 :
   	break;
-  		case 2 : 
+  		case 2 :
   	break;
   	}
   }
